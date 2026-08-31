@@ -13,4 +13,16 @@
         <tag>测试与更新</tag>
       </tags>
   </entry>
+  <entry>
+    <title>hello</title>
+    <url>/2026/05/07/hello/</url>
+    <content><![CDATA[<p>这是我的第一篇博客，仅用于测试搭建效果。</p>
+]]></content>
+      <categories>
+        <category>博客测试与更新</category>
+      </categories>
+      <tags>
+        <tag>测试与更新</tag>
+      </tags>
+  </entry>
 </search>
