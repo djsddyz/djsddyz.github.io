@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>功能更新2026-8.31</title>
-    <url>/2026/08/31/%E5%8A%9F%E8%83%BD%E6%9B%B4%E6%96%B02026-8-31/</url>
-    <content><![CDATA[<h2 id="2026-8-31第一次更新"><a href="#2026-8-31第一次更新" class="headerlink" title="2026-8.31第一次更新"></a>2026-8.31第一次更新</h2><p>1.新增了友情链接页（虽然现在没有东西，有想上链接的可以跟我说）</p>
-<p>2.新增了评论功能（需登录github账号）</p>
+    <title>hello</title>
+    <url>/2026/05/07/hello/</url>
+    <content><![CDATA[<p>这是我的第一篇博客，仅用于测试搭建效果。</p>
 ]]></content>
       <categories>
         <category>博客测试与更新</category>
@@ -14,9 +13,77 @@
       </tags>
   </entry>
   <entry>
-    <title>hello</title>
-    <url>/2026/05/07/hello/</url>
-    <content><![CDATA[<p>这是我的第一篇博客，仅用于测试搭建效果。</p>
+    <title>VM虚拟机逆向（持续更新）</title>
+    <url>/2026/08/31/VM%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%80%86%E5%90%91%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="什么是VM虚拟机逆向"><a href="#什么是VM虚拟机逆向" class="headerlink" title="什么是VM虚拟机逆向"></a>什么是VM虚拟机逆向</h2><p>VM逆向是一种针对虚拟机保护技术的逆向工程方法，常用于CTF比赛和安全研究中。虚拟机保护通过将原始代码转换为自定义的操作码（opcode），并在运行时解释执行这些操作码，从而隐藏程序逻辑，增加逆向难度。</p>
+<p>核心概念</p>
+<p>虚拟机逆向的关键在于理解其运行机制，包括以下几个核心组件：</p>
+<ol>
+<li><strong>VM入口函数（vm_start）</strong>：初始化虚拟机环境，设置寄存器、栈指针等。</li>
+<li><strong>调度器（vm_dispatcher）</strong>：根据操作码选择对应的处理函数（handler）执行。</li>
+<li><strong>操作码（opcode）</strong>：程序逻辑被转换为的字节码指令。</li>
+<li><strong>处理函数（handler）</strong>：执行具体功能的模块，例如寄存器操作、栈操作、算术运算等。</li>
+</ol>
+<p>虚拟机的运行逻辑是通过循环读取操作码，交由调度器解释并调用对应的处理函数，完成程序逻辑。</p>
+<p>逆向分析步骤</p>
+<ol>
+<li><strong>分析VM结构</strong>：确定虚拟机的寄存器数量、栈结构、指令集等。例如，常见的VM结构包括基于栈、队列或信号量的设计。</li>
+<li><strong>解析操作码</strong>：通过动态调试或静态分析，理解每个操作码的功能。例如，<em>push</em>、<em>pop</em>、<em>add</em>等指令对应的具体实现。</li>
+<li><strong>编写解析器</strong>：将操作码翻译为可读的伪代码或C语言代码，便于理解程序逻辑。</li>
+<li><strong>还原算法</strong>：通过分析操作码序列，重建程序的原始逻辑。</li>
+</ol>
+<p><strong>以上摘自其他大佬的文章</strong></p>
+<p><strong>本文将持续收集更新此类题型的解法，以及一些典型题目的wp</strong></p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><h3 id="1-还原逻辑手撕"><a href="#1-还原逻辑手撕" class="headerlink" title="1.还原逻辑手撕"></a>1.还原逻辑手撕</h3><p>这种解法就是最传统的做法，还原出原本的加密流程，再逆向反推求解</p>
+<p>首先我们需要知道opcode的列表，然后找到循环选择的那一部分，程序运行时会不断根据此时opcode的值来进入不同的handler</p>
+<p>一般基础题目中会有一个handler是负责比较的，我们可以从中获取密文，接下来我们正向执行一遍整个流程并打印出其中进行的操作，拥有密文并知道了得到密文的操作后，我们就可以进行逆向还原出原本的输入，即flag</p>
+<h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><h5 id="1-网鼎杯2020-signal"><a href="#1-网鼎杯2020-signal" class="headerlink" title="1.网鼎杯2020-signal"></a>1.网鼎杯2020-signal</h5><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\kanade\AppData\Roaming\Typora\typora-user-images\image-20260831224054346.png"
+                      alt="image-20260831224054346"
+                ></p>
+<p>打开题目，将一组数据赋值给了v4,并传入了vmoperad函数中</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\kanade\AppData\Roaming\Typora\typora-user-images\image-20260831224245490.png"
+                      alt="image-20260831224245490"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\kanade\AppData\Roaming\Typora\typora-user-images\image-20260831224300844.png"
+                      alt="image-20260831224300844"
+                ></p>
+<p>进入函数就看到了选择语句，很明显是考的vm逆向</p>
+<p>并且我们可以知道v9是列表的索引，传进来的v4就是opcode的列表</p>
+<p>这里的比较处是取的现在的下一个数，密文将从这得到</p>
+<p>不过密文事实上会跟着我们整个程序正向执行时一起打印出来，毕竟比较过程也是逻辑的一部分</p>
+<p>脚本</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">opcode= [10, 4, 16, 8, 3, 5, 1, 4, 32, 8, 5, 3, 1, 3, 2, 8, 11, 1, 12, 8, 4, 4, 1, 5, 3, 8, 3, 33, 1, 11, 8, 11, 1, 4,</span><br><span class="line">         9, 8, 3, 32, 1, 2, 81, 8, 4, 36, 1, 12, 8, 11, 1, 5, 2, 8, 2, 37, 1, 2, 54, 8, 4, 65, 1, 2, 32, 8, 5, 1, 1, 5,</span><br><span class="line">         3, 8, 2, 37, 1, 4, 9, 8, 3, 32, 1, 2, 65, 8, 12, 1, 7, 34, 7, 63, 7, 52, 7, 50, 7, 114, 7, 51, 7, 24, 7, 167,</span><br><span class="line">         7, 49, 7, 241, 7, 40, 7, 132, 7, 193, 7, 30, 7, 122]</span><br><span class="line">op=0</span><br><span class="line">v8 = 0</span><br><span class="line">v7 = 0</span><br><span class="line">v6 = 0</span><br><span class="line">v5 = 0</span><br><span class="line">while op&lt;len(opcode):</span><br><span class="line">    if opcode[op]==1:</span><br><span class="line">        print(f&#x27;Str[&#123;v6 + 100&#125;] = v4&#x27;)</span><br><span class="line">        op = op +1</span><br><span class="line">        v6 = v6 + 1</span><br><span class="line">        v8 = v8 + 1</span><br><span class="line">    elif opcode[op]==2:</span><br><span class="line">        print(f&#x27;v4 = &#123;opcode[op + 1]&#125; + Str[&#123;v8&#125;]&#x27;)</span><br><span class="line">        op=op+2</span><br><span class="line">    elif opcode[op]==3:</span><br><span class="line">        print(f&#x27;v4 = Str[&#123;v8&#125;] - &#123;opcode[op + 1]&#125;&#x27;)</span><br><span class="line">        op = op + 2</span><br><span class="line">    elif opcode[op]==4:</span><br><span class="line">        print(f&#x27;v4 = &#123;opcode[op + 1]&#125; ^ Str[&#123;v8&#125;]&#x27;)</span><br><span class="line">        op = op + 2</span><br><span class="line">    elif opcode[op]==5:</span><br><span class="line">        print(f&#x27;v4 = &#123;opcode[op + 1]&#125; * Str[&#123;v8&#125;]&#x27;)</span><br><span class="line">        op = op + 2</span><br><span class="line">    elif opcode[op]==6:</span><br><span class="line">        op=op+1</span><br><span class="line">    elif opcode[op]==7:</span><br><span class="line">        print(f&#x27; Str[&#123;v7 + 100&#125;] = &#123;opcode[op+ 1]&#125;&#x27;)</span><br><span class="line">        v7=v7+1</span><br><span class="line">        op=op+2</span><br><span class="line">    elif opcode[op]==8:</span><br><span class="line">        print(f&#x27;Str[&#123;v5&#125;] = v4&#x27;)</span><br><span class="line">        op = op + 1</span><br><span class="line">        v5=v5 + 1</span><br><span class="line">    elif opcode[op]==10:</span><br><span class="line">        print(&#x27;read the input&#x27;)</span><br><span class="line">        op = op + 1</span><br><span class="line">    elif opcode[op]==11:</span><br><span class="line">        print(f&#x27;v4 = Str[&#123;v8&#125;] - 1&#x27;)</span><br><span class="line">        op = op + 1</span><br><span class="line">    elif opcode[op]==12:</span><br><span class="line">        print(f&#x27;v4 = Str[&#123;v8&#125;] + 1&#x27;)</span><br><span class="line">        op = op + 1</span><br><span class="line">    else:</span><br><span class="line">        continue</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">read the input</span><br><span class="line">v4 = 16 ^ Str[0]</span><br><span class="line">Str[0] = v4</span><br><span class="line">v4 = Str[0] - 5</span><br><span class="line">Str[100] = v4</span><br><span class="line">v4 = 32 ^ Str[1]</span><br><span class="line">Str[1] = v4</span><br><span class="line">v4 = 3 * Str[1]</span><br><span class="line">Str[101] = v4</span><br><span class="line">v4 = Str[2] - 2</span><br><span class="line">Str[2] = v4</span><br><span class="line">v4 = Str[2] - 1</span><br><span class="line">Str[102] = v4</span><br><span class="line">v4 = Str[3] + 1</span><br><span class="line">Str[3] = v4</span><br><span class="line">v4 = 4 ^ Str[3]</span><br><span class="line">Str[103] = v4</span><br><span class="line">v4 = 3 * Str[4]</span><br><span class="line">Str[4] = v4</span><br><span class="line">v4 = Str[4] - 33</span><br><span class="line">Str[104] = v4</span><br><span class="line">v4 = Str[5] - 1</span><br><span class="line">Str[5] = v4</span><br><span class="line">v4 = Str[5] - 1</span><br><span class="line">Str[105] = v4</span><br><span class="line">v4 = 9 ^ Str[6]</span><br><span class="line">Str[6] = v4</span><br><span class="line">v4 = Str[6] - 32</span><br><span class="line">Str[106] = v4</span><br><span class="line">v4 = 81 + Str[7]</span><br><span class="line">Str[7] = v4</span><br><span class="line">v4 = 36 ^ Str[7]</span><br><span class="line">Str[107] = v4</span><br><span class="line">v4 = Str[8] + 1</span><br><span class="line">Str[8] = v4</span><br><span class="line">v4 = Str[8] - 1</span><br><span class="line">Str[108] = v4</span><br><span class="line">v4 = 2 * Str[9]</span><br><span class="line">Str[9] = v4</span><br><span class="line">v4 = 37 + Str[9]</span><br><span class="line">Str[109] = v4</span><br><span class="line">v4 = 54 + Str[10]</span><br><span class="line">Str[10] = v4</span><br><span class="line">v4 = 65 ^ Str[10]</span><br><span class="line">Str[110] = v4</span><br><span class="line">v4 = 32 + Str[11]</span><br><span class="line">Str[11] = v4</span><br><span class="line">v4 = 1 * Str[11]</span><br><span class="line">Str[111] = v4</span><br><span class="line">v4 = 3 * Str[12]</span><br><span class="line">Str[12] = v4</span><br><span class="line">v4 = 37 + Str[12]</span><br><span class="line">Str[112] = v4</span><br><span class="line">v4 = 9 ^ Str[13]</span><br><span class="line">Str[13] = v4</span><br><span class="line">v4 = Str[13] - 32</span><br><span class="line">Str[113] = v4</span><br><span class="line">v4 = 65 + Str[14]</span><br><span class="line">Str[14] = v4</span><br><span class="line">v4 = Str[14] + 1</span><br><span class="line">Str[114] = v4</span><br><span class="line"> Str[100] = 34</span><br><span class="line"> Str[101] = 63</span><br><span class="line"> Str[102] = 52</span><br><span class="line"> Str[103] = 50</span><br><span class="line"> Str[104] = 114</span><br><span class="line"> Str[105] = 51</span><br><span class="line"> Str[106] = 24</span><br><span class="line"> Str[107] = 167</span><br><span class="line"> Str[108] = 49</span><br><span class="line"> Str[109] = 241</span><br><span class="line"> Str[110] = 40</span><br><span class="line"> Str[111] = 132</span><br><span class="line"> Str[112] = 193</span><br><span class="line"> Str[113] = 30</span><br><span class="line"> Str[114] = 122</span><br><span class="line">&#x27;&#x27;&#x27;</span><br></pre></td></tr></table></figure></div>
+
+<p>这里可以看到，我们先将opcode列表提取出来，后面相当于在照抄程序的代码，只不过要把执行的具体操作与数值打印出来，从而让我们看清整个流程</p>
+<p>根据打印的结果我们可以很清晰的看到加密的过程，以及最终加密后的结果</p>
+<p>后面一个个还原就行了，这题的加密过程很简单</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">flag=&#x27;&#x27;</span><br><span class="line">flag+=chr((34+5)^16)</span><br><span class="line">flag+=chr((63//3)^32)</span><br><span class="line">flag+=chr(52+3)</span><br><span class="line">flag+=chr((50^4)-1)</span><br><span class="line">flag+=chr((114+33)//3)</span><br><span class="line">flag+=chr(53)</span><br><span class="line">flag+=chr((24+32)^9)</span><br><span class="line">flag+=chr((167^36)-81)</span><br><span class="line">flag+=chr(49)</span><br><span class="line">flag+=chr((241-37)//2)</span><br><span class="line">flag+=chr((40^65)-54)</span><br><span class="line">flag+=chr(100)</span><br><span class="line">flag+=chr((193-37)//3)</span><br><span class="line">flag+=chr(62^9)</span><br><span class="line">flag+=chr(122-66)</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure></div>
+
+<p>最终结果757515121f3d478</p>
+<p>持续更新中……</p>
+]]></content>
+      <categories>
+        <category>Reverse</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+        <tag>Reverse</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>功能更新2026-8.31</title>
+    <url>/2026/08/31/%E5%8A%9F%E8%83%BD%E6%9B%B4%E6%96%B02026-8-31/</url>
+    <content><![CDATA[<h2 id="2026-8-31第一次更新"><a href="#2026-8-31第一次更新" class="headerlink" title="2026-8.31第一次更新"></a>2026-8.31第一次更新</h2><p>1.新增了友情链接页（虽然现在没有东西，有想上链接的可以跟我说）</p>
+<p>2.新增了评论功能（需登录github账号）</p>
 ]]></content>
       <categories>
         <category>博客测试与更新</category>
