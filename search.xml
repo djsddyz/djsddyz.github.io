@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hello</title>
-    <url>/2026/05/07/hello/</url>
-    <content><![CDATA[<p>这是我的第一篇博客，仅用于测试搭建效果。</p>
-]]></content>
-      <categories>
-        <category>博客测试与更新</category>
-      </categories>
-      <tags>
-        <tag>测试与更新</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VM虚拟机逆向（持续更新）</title>
     <url>/2026/08/31/VM%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%80%86%E5%90%91%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/</url>
     <content><![CDATA[<h2 id="什么是VM虚拟机逆向"><a href="#什么是VM虚拟机逆向" class="headerlink" title="什么是VM虚拟机逆向"></a>什么是VM虚拟机逆向</h2><p>VM逆向是一种针对虚拟机保护技术的逆向工程方法，常用于CTF比赛和安全研究中。虚拟机保护通过将原始代码转换为自定义的操作码（opcode），并在运行时解释执行这些操作码，从而隐藏程序逻辑，增加逆向难度。</p>
@@ -77,6 +65,18 @@
       <tags>
         <tag>CTF</tag>
         <tag>Reverse</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hello</title>
+    <url>/2026/05/07/hello/</url>
+    <content><![CDATA[<p>这是我的第一篇博客，仅用于测试搭建效果。</p>
+]]></content>
+      <categories>
+        <category>博客测试与更新</category>
+      </categories>
+      <tags>
+        <tag>测试与更新</tag>
       </tags>
   </entry>
   <entry>
