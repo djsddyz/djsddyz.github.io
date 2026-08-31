@@ -28,21 +28,20 @@
 <h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><h5 id="1-网鼎杯2020-signal"><a href="#1-网鼎杯2020-signal" class="headerlink" title="1.网鼎杯2020-signal"></a>1.网鼎杯2020-signal</h5><p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="C:\Users\kanade\AppData\Roaming\Typora\typora-user-images\image-20260831224054346.png"
-                      alt="image-20260831224054346"
+                     data-src="/images/vm-1.png"
+                     
                 ></p>
 <p>打开题目，将一组数据赋值给了v4,并传入了vmoperad函数中</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="C:\Users\kanade\AppData\Roaming\Typora\typora-user-images\image-20260831224245490.png"
-                      alt="image-20260831224245490"
-                ></p>
-<p><img  
+                     data-src="/images/vm-2.png"
+                     
+                ><br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="C:\Users\kanade\AppData\Roaming\Typora\typora-user-images\image-20260831224300844.png"
-                      alt="image-20260831224300844"
+                     data-src="/images/vm-3.png"
+                     
                 ></p>
 <p>进入函数就看到了选择语句，很明显是考的vm逆向</p>
 <p>并且我们可以知道v9是列表的索引，传进来的v4就是opcode的列表</p>
@@ -68,9 +67,10 @@
       </tags>
   </entry>
   <entry>
-    <title>hello</title>
-    <url>/2026/05/07/hello/</url>
-    <content><![CDATA[<p>这是我的第一篇博客，仅用于测试搭建效果。</p>
+    <title>功能更新2026-8.31</title>
+    <url>/2026/08/31/%E5%8A%9F%E8%83%BD%E6%9B%B4%E6%96%B02026-8-31/</url>
+    <content><![CDATA[<h2 id="2026-8-31第一次更新"><a href="#2026-8-31第一次更新" class="headerlink" title="2026-8.31第一次更新"></a>2026-8.31第一次更新</h2><p>1.新增了友情链接页（虽然现在没有东西，有想上链接的可以跟我说）</p>
+<p>2.新增了评论功能（需登录github账号）</p>
 ]]></content>
       <categories>
         <category>博客测试与更新</category>
@@ -80,10 +80,9 @@
       </tags>
   </entry>
   <entry>
-    <title>功能更新2026-8.31</title>
-    <url>/2026/08/31/%E5%8A%9F%E8%83%BD%E6%9B%B4%E6%96%B02026-8-31/</url>
-    <content><![CDATA[<h2 id="2026-8-31第一次更新"><a href="#2026-8-31第一次更新" class="headerlink" title="2026-8.31第一次更新"></a>2026-8.31第一次更新</h2><p>1.新增了友情链接页（虽然现在没有东西，有想上链接的可以跟我说）</p>
-<p>2.新增了评论功能（需登录github账号）</p>
+    <title>hello</title>
+    <url>/2026/05/07/hello/</url>
+    <content><![CDATA[<p>这是我的第一篇博客，仅用于测试搭建效果。</p>
 ]]></content>
       <categories>
         <category>博客测试与更新</category>
